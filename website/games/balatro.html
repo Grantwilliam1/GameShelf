@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balatro</title>
+    <link href="../css/gameStyles.css" rel="stylesheet">
+</head>
+<body data-page-id="balatro">
+    <div class="container">
+        <a class="skip-link" href="#main">Skip to main content</a>
+
+        <header>
+            <div class="logo"><a href="../index.html"><img src="../assets/logoWhite.png" alt="The logo for the website"></a></div>
+        </header>
+
+        <nav>
+            <h2 id="hidden-title">Navigation</h2>
+            <ul class="navigation">
+                <li><a href="../global.html"><strong>Top Games</strong></a></li>
+                <li><a href=""><strong>User profile</strong></a></li>
+            </ul>
+            <form class="search-bar" action="/search" method="GET">
+                <input type="text" name="q" placeholder="Search..." required>
+            </form>
+        </nav>
+        <main>
+            <h2>Balatro</h2>
+            <section class="ranking">
+                <li><strong class="score">Score:</strong> <span>8.7</span> </li>
+                <li><strong>Genre:</strong> Adventure</li>
+                <form id="scoreForm">
+                    <label for="score">Score (out of 10):</label>
+                    <select id="score" required>
+                        <option value="" disabled selected>Select your score</option>
+                        <option value="10">(10) Perfect</option>
+                        <option value="9">(9) Amazing</option>
+                        <option value="8">(8) Very Good</option>
+                        <option value="7">(7) Good</option>
+                        <option value="6">(6) Decent</option>
+                        <option value="5">(5) Average</option>
+                        <option value="4">(4) Bad</option>
+                        <option value="3">(3) Very Bad</option>
+                        <option value="2">(2) Awful</option>
+                        <option value="1">(1) "Mid"</option>
+                    </select>
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+            <p>
+                The poker roguelike. Balatro is a hypnotically satisfying deckbuilder where you play illegal poker hands, discover game-changing jokers, and trigger adrenaline-pumping, outrageous combos.
+            </p>
+            <p>
+                Combine valid poker hands with unique Joker cards in order to create varied synergies and builds. Earn enough chips to beat devious blinds, all while uncovering hidden bonus hands and decks as you progress. You’re going to need every edge you can get in order to reach the boss blind, beat the final ante and secure victory.
+            </p>
+        </main>
+
+        <aside id="aside1">
+            <img src="../assets/gameIcons/balatro.webp" alt="The cover art for the Video Game Balatro">
+            <section class="info">
+                <p class="release"><strong>Initial Release Date</strong></p>
+                <p>February 20. 2024</p>
+                <p class="availible"><strong>Availible On</strong></p>
+                <p>PC: Windows, macOS</p>
+                <p>Nintendo: Switch</p>
+                <p>Xbox: One, Series X/S</p>
+                <p>Playstation: 4, 5</p>
+                <p>Mobile: iOS, Android</p>
+            </section>
+        </aside>
+
+    </div>
+    <script src="../js/score.js"></script>
+    <script src="../js/scriptGames.js"></script>
+</body>
+</html>

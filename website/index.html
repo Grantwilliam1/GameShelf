@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gameshelf</title>
+    <link href="css/gameStyles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container1">
+        <a class="skip-link" href="#main">Skip to main content</a>
+
+        <header>
+            <div class="logo"><a href="index.html"><img src="../assets/logoWhite.png" alt="The logo for the website"></a></div>
+        </header>
+
+        <nav>
+            <h2 id="hidden-title">Navigation</h2>
+            <ul class="navigation">
+                <li><a href="global.html"><strong>Top Games</strong></a></li>
+                <li><a href="home2.html"><strong>User profile</strong></a></li>
+            </ul>
+            <form class="search-bar" action="/search" method="GET">
+                <input type="text" name="q" placeholder="Search..." required>
+            </form>
+        </nav>
+        <main>
+            <secion id="main">
+                <h2>Lets start here (these are the only 4 games on here...)</h2>
+                <div class="slider-container">
+                    <div class="slider-wrapper">
+                        <figure>
+                            <div class="slide"><a href="games/balatro.html"><img src="assets/gameIcons/balatro.webp" alt="The cover art for the game Balatro"></a></div>
+                            <figcaption>Balatro</figcaption>
+                        </figure>
+                        <figure>
+                            <div class="slide"><a href="games/persona5.html"><img src="assets/gameIcons/persona5.webp" alt="The cover art for the game Persona 5 Royal"></a></div>
+                            <figcaption>Persona 5 Royal</figcaption>
+                        </figure>
+                        <figure>
+                            <div class="slide"><a href="games/pikmin.html"><img src="assets/gameIcons/pikmin.webp" alt="The cover art for the game Pikmin"></a></div>
+                            <figcaption>Pikmin</figcaption>
+                        </figure>
+                        <figure>
+                            <div class="slide"><a href="games/pikmin2.html"><img src="assets/gameIcons/pikmin2.webp" alt="The cover art for the game Pikmin 2"></a></div>
+                            <figcaption>Pikmin 2</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+<script src="js/scriptHome.js"></script>
+</body>
+</html>
