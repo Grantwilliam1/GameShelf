@@ -154,7 +154,7 @@ nav ul a {
 .slider-wrapper * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Ensures padding and margin don't affect the layout */
+  box-sizing: border-box; 
 }
 
 .slider-container2, 
@@ -162,40 +162,39 @@ nav ul a {
 .slider-wrapper2 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Ensures padding and margin don't affect the layout */
+  box-sizing: border-box;
 }
 
 .slider-container {
 width: 1400px;
-overflow: hidden; /* Hide overflowing images */
+overflow: hidden;
 margin: auto;
 position: relative;
 }
 
 .slider-container2 {
     width: 1400px;
-    overflow: hidden; /* Hide overflowing images */
+    overflow: hidden;
     margin: auto;
     position: relative;
     }
 
 .slider-wrapper {
-display: flex; /* Flexbox for horizontal scrolling */
+display: flex;
 transition: transform 0.1s ease-in-out;
 width: max-content;
 }
 
 .slider-wrapper2 {
-    display: flex; /* Flexbox for horizontal scrolling */
+    display: flex;
     transition: transform 0.1s ease-in-out;
     width: max-content;
 }
 
 .slider-wrapper img {
-width: 300px; /* 4 images visible at a time (25% each) */
+width: 300px;
 height: 350px;
-flex-shrink: 0; /* Prevent shrinking of images */
-/* margin: 0 25px; */
+flex-shrink: 0;
 object-fit: cover;
 }
 
@@ -205,47 +204,42 @@ object-fit: cover;
 }
 
 .slider-wrapper2 img {
-    width: 300px; /* 4 images visible at a time (25% each) */
+    width: 300px;
     height: 350px;
-    flex-shrink: 0; /* Prevent shrinking of images */
-    /* margin: 0 25px; */
+    flex-shrink: 0;
     object-fit: cover;
     }
 
 .slider-wrapper .slide {
 display: block;
-width: 300px; /* Fixed width */
-height: 350px; /* Fixed height */
+width: 300px;
+height: 350px;
 flex-shrink: 0;
-margin: 0 25px; /* Ensure no margin */
+margin: 0 25px;
 }
 
 .slider-wrapper2 .slide2 {
     display: block;
-    width: 300px; /* Fixed width */
-    height: 350px; /* Fixed height */
+    width: 300px;
+    height: 350px;
     flex-shrink: 0;
-    margin: 0 25px; /* Ensure no margin */
+    margin: 0 25px;
     }
 
 .slide {
     display: flex;
-    /* justify-content: center;
-    align-items: center; */
-    width: 200px; /* Same as the image width */
-    height: 250px; /* Same as the image height */
-    margin: 0; /* Ensure no extra spacing */
-    flex-shrink: 0; /* Prevent shrinking */
+    width: 200px;
+    height: 250px;
+    margin: 0;
+    flex-shrink: 0;
   }
 
 .slide2 {
 display: flex;
-/* justify-content: center;
-align-items: center; */
-width: 200px; /* Same as the image width */
-height: 250px; /* Same as the image height */
-margin: 0; /* Ensure no extra spacing */
-flex-shrink: 0; /* Prevent shrinking */
+width: 200px;
+height: 250px;
+margin: 0;
+flex-shrink: 0;
 }
 
 /* button {
@@ -384,20 +378,20 @@ outline: none;
 /* game ranking section */
 
 .ranking {
-    display: flex; /* Align elements horizontally */
-    justify-content: space-between; /* Space evenly between items */
-    align-items: center; /* Center items vertically */
-    background-color: #4E4C51; /* Set the distinct background color */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4E4C51;
     padding: 15px 20px;
     border-radius: 8px;
-    margin-bottom: 20px; /* Space below the info bar */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Optional shadow */
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   }
   
   .ranking ul {
-    display: flex; /* Align items horizontally */
-    justify-content: space-around; /* Evenly distribute items */
-    list-style: none; /* Remove bullets */
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
     margin: 0;
     padding: 0;
   }
@@ -499,9 +493,9 @@ th {
     font-size: 1.5em;
     text-align: center;
     padding: 15px;
-    background-color: #333; /* Darker background for headers */
-    color: white; /* Ensure text is visible */
-    border-radius: 8px; /* Rounded edges for the header row */
+    background-color: #333;
+    color: white;
+    border-radius: 8px;
     border: none;
 }
 
@@ -510,12 +504,14 @@ td {
     vertical-align: middle;
 }
 
+/* global ranking table css made with ChatGPT */
+
 #game-table th:first-child, #game-table td:first-child {
-    width: 30%; /* Image column - 3/10 of the row */
+    width: 30%;
 }
 
 #game-table th:nth-child(2), #game-table td:nth-child(2) {
-    width: 50%; /* Image column - 3/10 of the row */
+    width: 50%;
 }
 
 #game-table th:last-child, #game-table th:last-child {
