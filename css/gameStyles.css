@@ -120,9 +120,9 @@ header, main, aside, footer {
 nav {
     /* border: 1px black solid;
     padding: 0px 50px; */
-    display: flex; /* Use flexbox to align items */
-    justify-content: space-between; /* Space between links and the search bar */
-    align-items: center; /* Vertically center items */
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
     padding: 0px 50px;
     background-color: #4E4C51;
     /* border: 1px solid black; */
@@ -166,8 +166,9 @@ nav ul a {
 }
 
 .slider-container {
-width: 1400px;
-overflow: hidden;
+width: 100%;
+max-width: 1400px;
+overflow: visible;
 margin: auto;
 position: relative;
 }
@@ -181,7 +182,8 @@ position: relative;
 
 .slider-wrapper {
 display: flex;
-transition: transform 0.1s ease-in-out;
+flex-wrap: nowrap;
+justify-content: space-between;
 width: max-content;
 }
 
@@ -192,8 +194,8 @@ width: max-content;
 }
 
 .slider-wrapper img {
-width: 300px;
-height: 350px;
+width: 160px;
+height: 200px;
 flex-shrink: 0;
 object-fit: cover;
 }
@@ -211,11 +213,10 @@ object-fit: cover;
     }
 
 .slider-wrapper .slide {
-display: block;
-width: 300px;
-height: 350px;
+width: 160px;
+height: 200px;
 flex-shrink: 0;
-margin: 0 25px;
+margin: 0 5px;
 }
 
 .slider-wrapper2 .slide2 {
@@ -226,13 +227,7 @@ margin: 0 25px;
     margin: 0 25px;
     }
 
-.slide {
-    display: flex;
-    width: 200px;
-    height: 250px;
-    margin: 0;
-    flex-shrink: 0;
-  }
+
 
 .slide2 {
 display: flex;
@@ -241,17 +236,6 @@ height: 250px;
 margin: 0;
 flex-shrink: 0;
 }
-
-/* button {
-position: absolute;
-top: 50%;
-transform: translateY(-50%);
-background-color: rgba(0, 0, 0, 0.5);
-color: white;
-border: none;
-cursor: pointer;
-padding: 10px;
-} */
 
 #prev {
 left: 10px;
@@ -267,13 +251,6 @@ right: 10px;
     
 #next2 {
 right: 10px;
-}
-  
-
-figcaption {
-    text-align: center;
-    font-size: .8em;
-    padding: none;
 }
 
 /* Skip-nav info */
@@ -308,6 +285,8 @@ nav {
 main {
     grid-area: main;
     background-color: #1A2223;
+    overflow: visible;
+    position: relative;
 }
 #aside2 {
     grid-area: aside2;
@@ -336,7 +315,7 @@ main {
 }
 
 #aside1 img{
-    width: 400px;
+    width: 375px;
     height: 500px;
 }
 
@@ -459,15 +438,11 @@ outline: none;
 }
 
 .slider-wrapper {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 figure{
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
-}
-
-figcaption {
-    margin: 10px;
 }
 
 table {
@@ -523,4 +498,57 @@ td {
     height: 225px;
     border-radius: 8px;
     margin-left: 30px;
+}
+
+/* this is just me testing smthing */
+
+
+.slide {
+    display: flex;
+    width: 200px;
+    height: 250px;
+    margin: 0;
+    flex-shrink: 0;
+    
+}
+
+figure:hover img{
+    filter: blur(2.5px);
+    transform: scale(1.2);
+}
+
+figure:hover{
+    z-index: 100;
+}
+
+figcaption {
+    text-align: center;
+    font-size: 1em;
+    padding: none;
+    margin: 10px;
+    position: absolute;
+    transform: translateX(-50%);
+    bottom: 5px;
+    left: 50%;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+figure {
+    position: relative;
+    display: inline-block;
+    overflow: visible;
+    z-index: 1;
+}
+
+figure img {
+    transition: filter 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    transition: z-index 0.3 ease-in-out;
+}
+
+figure:hover figcaption{
+    opacity: 1;
 }
