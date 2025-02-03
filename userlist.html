@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Games</title>
+    <link href="../css/gameStyles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container1">
+        <a class="skip-link" href="#main">Skip to main content</a>
+
+        <header>
+            <div class="logo"><a href="index.html"><img src="../assets/logoWhite.png" alt="The logo for the website"></a></div>
+        </header>
+
+        <nav>
+            <h2 id="hidden-title">Navigation</h2>
+            <ul class="navigation">
+                <li><a href="global.html"><strong>Top Games</strong></a></li>
+                <li><a href=""><strong>User profile</strong></a></li>
+            </ul>
+            <form class="search-bar" action="/search" method="GET">
+                <input type="text" name="q" placeholder="Search..." required>
+            </form>
+        </nav>
+
+        <main>
+            <table id="game-table">
+                <thead>
+                    <tr>
+                        <th>Icon</th>
+                        <th>Title</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </main>
+    </div>
+    <script src="../js/rank.js"></script>
+    <script src="/js/scriptHome.js"></script>
+</body>
+</html>
