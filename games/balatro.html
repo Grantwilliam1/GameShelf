@@ -29,7 +29,6 @@
             <h2>Balatro</h2>
             <section class="ranking">
                 <li><strong class="score">Score:</strong> <span>8.7</span> </li>
-                <li><strong>Genre:</strong> Adventure</li>
                 <form id="scoreForm">
                     <label for="score">Score (out of 10):</label>
                     <select id="score" required>
@@ -46,6 +45,18 @@
                         <option value="1">(1) "Mid"</option>
                     </select>
                     <button type="submit">Submit</button>
+                </form>
+                <form id="progressForm">
+                    <label for="progress">Progress:</label>
+                    <select id="progress" required>
+                        <option value="" disabled selected>User Progress</option>
+                        <option value="Playing">Playing</option>
+                        <option value="Finished">Finished</option>
+                        <option value="On Hold">On Hold</option>
+                        <option value="Dropped">Dropped</option>
+                        <option value="Plan to Play">Plan to Play</option>
+                    </select>
+                    <button type="submit">Save</button>
                 </form>
             </section>
             <p>
@@ -73,5 +84,6 @@
     </div>
     <script src="../js/score.js"></script>
     <script src="../js/scriptGames.js"></script>
+    <script src="../js/status.js"></script>
 </body>
 </html>
