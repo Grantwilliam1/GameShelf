@@ -157,6 +157,12 @@ nav ul a {
   box-sizing: border-box; 
 }
 
+#gamesTable {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
 .slider-container2, 
 .slider-wrapper2, 
 .slider-wrapper2 * {
@@ -165,10 +171,10 @@ nav ul a {
   box-sizing: border-box;
 }
 
-.slider-container {
+.slider-container, .table-container {
 width: 100%;
 max-width: 1400px;
-overflow: visible;
+/* overflow: visible; */
 margin: auto;
 position: relative;
 }
@@ -187,13 +193,20 @@ justify-content: space-between;
 width: max-content;
 }
 
+#gamesTable{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: fixed;
+}
+
 .slider-wrapper2 {
     display: flex;
     transition: transform 0.1s ease-in-out;
     width: max-content;
 }
 
-.slider-wrapper img {
+.slider-wrapper img, #gamesTable img {
 width: 160px;
 height: 200px;
 flex-shrink: 0;
@@ -212,7 +225,7 @@ object-fit: cover;
     object-fit: cover;
     }
 
-.slider-wrapper .slide {
+.slider-wrapper .slide  {
 width: 160px;
 height: 200px;
 flex-shrink: 0;
@@ -437,7 +450,7 @@ outline: none;
     color: #69C8C9;
 }
 
-.slider-wrapper {
+.slider-wrapper, #gamesTable {
     margin-bottom: 20px;
 }
 
@@ -447,7 +460,7 @@ figure{
 
 table {
     width: 100%;
-    border-collapse: seperate;
+    /* border-collapse: seperate; */
     margin-top: 20px;
     border-spacing: 0 15px;
     border-radius: 8px;
@@ -524,12 +537,11 @@ figure:hover{
 
 figcaption {
     text-align: center;
+    bottom: 5px;
     font-size: .8em;
     padding: none;
-    margin: 2px;
     position: absolute;
     transform: translateX(-50%);
-    bottom: 0px;
     left: 50%;
     background: rgba(0, 0, 0, 0.7);
     border-radius: 3px;
@@ -552,5 +564,78 @@ figure img {
 }
 
 figure:hover figcaption{
+    transform: translateX(-50%) scale(1.15);
     opacity: 0;
+    transition: transform 0.25s ease-in-out, opacity 0.3s ease-in-out;
 }
+
+#gamesTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: fixed;
+}
+
+#gamesTable tr {
+    display: table-row !important;
+    width: 100%;
+}
+
+#gamesTable td {
+    width: 12.5%;
+    text-align: center;
+    padding: 0px;
+    vertical-align: top;
+    display: table-cell !important;
+    box-sizing: border-box;
+}
+
+
+#gamesTable img {
+    width: 160px;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.25s ease-in-out;
+}
+
+#gamesTable figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    min-height: 40px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    font-size: 0.75em;
+    padding: 5px;
+    border-radius: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
+}
+
+#gamesTable figure {
+    position: relative;
+    display: inline-block;
+    width: 160px;
+    height: 200px;
+    margin: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.25s ease-in-out;
+
+}
+
+#gamesTable figure:hover {
+    transform: scale(1.10);
+}
+
+#gamesTable .slide {
+    display: block;
+    width: 100%;
+}
+
