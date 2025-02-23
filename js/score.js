@@ -9,11 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const scoreDisplay = document.querySelector(".score + span");
 
     const gameName = document.querySelector("main h2")?.textContent.trim() || "Unknown Game";
-    const gameImage = document.querySelector("aside img")?.getAttribute("src") || ""; // Extract cover image
+    const gameImage = document.querySelector("aside img")?.getAttribute("src") || "";
 
     let scores = JSON.parse(localStorage.getItem(`${pageId}Scores`)) || [];
     let progressStatus = localStorage.getItem(`${pageId}Progress`) || "Not Set";
-    let lastSelectedScore = localStorage.getItem(`${pageId}LastScore`) || ""; // Get last saved score
+    let lastSelectedScore = localStorage.getItem(`${pageId}LastScore`) || "";
 
     const updateAverageScore = () => {
         const average = scores.reduce((sum, score) => sum + score, 0) / (scores.length || 1);
@@ -27,37 +27,35 @@ document.addEventListener("DOMContentLoaded", () => {
         scoreDropdown.value = lastSelectedScore ? lastSelectedScore : "";
     }
 
-    submitButton.addEventListener("click", (event) => {
-        event.preventDefault();
-        const selectedScore = parseInt(scoreDropdown.value, 10);
-        if (!isNaN(selectedScore)) {
-            scores.push(selectedScore);
-            localStorage.setItem(`${pageId}Scores`, JSON.stringify(scores));
-            localStorage.setItem(`${pageId}LastScore`, selectedScore);
-            updateAverageScore();
+    if (scoreDropdown) {
+        scoreDropdown.addEventListener("change", () => {
+            const selectedScore = parseInt(scoreDropdown.value, 10);
+            if (!isNaN(selectedScore)) {
+                scores.push(selectedScore);
+                localStorage.setItem(`${pageId}Scores`, JSON.stringify(scores));
+                localStorage.setItem(`${pageId}LastScore`, selectedScore);
+                updateAverageScore();
 
-            // Update localStorage
-            const gameData = {
-                id: pageId,
-                name: gameName,
-                image: gameImage,
-                score: selectedScore,
-                progress: progressStatus
-            };
+                // Update localStorage
+                const gameData = {
+                    id: pageId,
+                    name: gameName,
+                    image: gameImage,
+                    score: selectedScore,
+                    progress: progressStatus
+                };
 
-            localStorage.setItem(`userGame_${pageId}`, JSON.stringify(gameData));
-            alert(`${gameData.name} (Score: ${selectedScore}) added to your list!`);
-        } else {
-            alert("Please select a valid score before submitting.");
-        }
-    });
+                localStorage.setItem(`userGame_${pageId}`, JSON.stringify(gameData));
+                alert(`${gameData.name} (Score: ${selectedScore}) added to your list!`);
+            }
+        });
+    }
 
     // Handle Progress Selection
     if (progressDropdown) {
         progressDropdown.value = progressStatus !== "Not Set" ? progressStatus : "";
 
-        progressForm.addEventListener("submit", (event) => {
-            event.preventDefault();
+        progressForm.addEventListener("change", (event) => {
             const selectedProgress = progressDropdown.value;
             if (selectedProgress) {
                 localStorage.setItem(`${pageId}Progress`, selectedProgress);

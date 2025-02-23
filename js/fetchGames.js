@@ -36,10 +36,12 @@ function updateGameTable(games) {
 
         const cell = document.createElement("td");
         cell.style.width = "12.5%"; // 8 columns per row
+        const gameSlug = game.Title.toLowerCase().replace(/[^a-z0-9()]/g, "").replace(/\s+/g, "");
+
         cell.innerHTML = `
             <figure>
                 <div class="slide">
-                    <a href="games/${game.Title.toLowerCase().replace(/ /g, '')}.html">
+                    <a href="games/${gameSlug}.html">
                         <img src="assets/gameIcons/${game.Icon}" alt="The cover art for ${game.Title}">
                     </a>
                 </div>

@@ -108,6 +108,7 @@ h3 {
 }
 
 p {
+    display: block; /* Ensure it doesn't behave like an inline element */
     margin: 1.8em 0;
     line-height: 1.8em;
 }

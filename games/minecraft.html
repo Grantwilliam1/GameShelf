@@ -5,9 +5,76 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minecraft</title>
+    <link href="../css/gameStyles.css" rel="stylesheet">
 </head>
-<body>
-    <h1>This is Minecraft! :D</h1>
-    <h3>please leave, now</h3>
+<body data-page-id="minecraft">
+    <div class="container">
+        <a class="skip-link" href="#main">Skip to main content</a>
+
+        <header>
+            <div class="logo"><a href="../index.html"><img src="../assets/logoWhite.png" alt="The logo for the website"></a></div>
+        </header>
+
+        <nav>
+            <h2 id="hidden-title">Navigation</h2>
+            <ul class="navigation">
+                <li><a href="../global.html"><strong>Top Games</strong></a></li>
+                <li><a href="../userlist.html"><strong>User profile</strong></a></li>
+            </ul>
+            <form class="search-bar" action="/search" method="GET">
+                <input type="text" name="q" placeholder="Search..." required>
+            </form>
+        </nav>
+
+        <main>
+            <h2>Minecraft</h2>
+            <section class="ranking">
+                <li><strong class="score">Score:</strong> <span>9.3</span></li>
+                <form id="scoreForm">
+                    <label for="score">Score (out of 10):</label>
+                    <select id="score" required>
+                        <option value="" disabled selected>Select your score</option>
+                        <option value="10">(10) Perfect</option>
+                        <option value="9">(9) Amazing</option>
+                        <option value="8">(8) Very Good</option>
+                        <option value="7">(7) Good</option>
+                        <option value="6">(6) Decent</option>
+                        <option value="5">(5) Average</option>
+                        <option value="4">(4) Bad</option>
+                        <option value="3">(3) Very Bad</option>
+                        <option value="2">(2) Awful</option>
+                        <option value="1">(1) "Mid"</option>
+                    </select>
+                </form>
+                <form id="progressForm">
+                    <label for="progress">Progress:</label>
+                    <select id="progress" required>
+                        <option value="" disabled selected>User Progress</option>
+                        <option value="Playing">Playing</option>
+                        <option value="Finished">Finished</option>
+                        <option value="On Hold">On Hold</option>
+                        <option value="Dropped">Dropped</option>
+                        <option value="Plan to Play">Plan to Play</option>
+                    </select>
+                </form>
+            </section>
+            
+            
+            
+        </main>
+
+        <aside id="aside1">
+            <img src="../assets/gameIcons/minecraft.webp" alt="The cover art for the Video Game Minecraft">
+            <section class="info">
+                <p class="release"><strong>Initial Release Date</strong></p>
+                <p></p>
+                <p class="availible"><strong>Available On</strong></p>
+                <p></p>
+            </section>
+        </aside>
+
+    </div>
+    <script src="../js/score.js"></script>
+    <script src="../js/scriptGames.js"></script>
 </body>
 </html>
