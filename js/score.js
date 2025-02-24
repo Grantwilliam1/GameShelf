@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateAverageScore();
 
-    // Set dropdown to last saved score (if available)
     if (scoreDropdown) {
         scoreDropdown.value = lastSelectedScore ? lastSelectedScore : "";
     }
@@ -51,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Handle Progress Selection
     if (progressDropdown) {
         progressDropdown.value = progressStatus !== "Not Set" ? progressStatus : "";
 
