@@ -138,7 +138,6 @@ def generate_pages():
 
     print("🎉 All new game pages generated!")
 
-# 🔹 Run the script
 if __name__ == "__main__":
     generate_pages()
 
