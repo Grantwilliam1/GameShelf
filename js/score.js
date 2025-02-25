@@ -1,50 +1,44 @@
+const userId = localStorage.getItem("userId") || `guest_${Math.random().toString(36).substr(2, 9)}`;
+localStorage.setItem("userId", userId);
+
+const SHEETS_API_URL = "https://script.google.com/macros/s/AKfycbyExq6vbB4_aYcdYbctMSigaybGhkivkHoMkpvyy0MKPac_CbtLN9vi7g8aLIZVel1cUg/exec";
+
 document.addEventListener("DOMContentLoaded", () => {
     const pageId = document.body.getAttribute("data-page-id");
     if (!pageId) return;
 
     const scoreDropdown = document.getElementById("score");
     const progressDropdown = document.getElementById("progress");
-    const submitButton = document.querySelector("#scoreForm button");
-    const progressForm = document.querySelector("#progressForm");
     const scoreDisplay = document.querySelector(".score + span");
 
     const gameName = document.querySelector("main h2")?.textContent.trim() || "Unknown Game";
     const gameImage = document.querySelector("aside img")?.getAttribute("src") || "";
 
-    let scores = JSON.parse(localStorage.getItem(`${pageId}Scores`)) || [];
     let progressStatus = localStorage.getItem(`${pageId}Progress`) || "Not Set";
     let lastSelectedScore = localStorage.getItem(`${pageId}LastScore`) || "";
 
-    const updateAverageScore = () => {
-        const average = scores.reduce((sum, score) => sum + score, 0) / (scores.length || 1);
-        scoreDisplay.textContent = average.toFixed(2);
-    };
-
-    updateAverageScore();
-
-    if (scoreDropdown) {
-        scoreDropdown.value = lastSelectedScore ? lastSelectedScore : "";
+    function fetchGlobalScore() {
+        fetch(`${SHEETS_API_URL}?action=getAverage&gameId=${pageId}`)
+            .then(response => response.text())
+            .then(data => {
+                scoreDisplay.textContent = data;
+            })
+            .catch(error => console.error("Error fetching global score:", error));
     }
 
     if (scoreDropdown) {
+        scoreDropdown.value = lastSelectedScore ? lastSelectedScore : "";
         scoreDropdown.addEventListener("change", () => {
             const selectedScore = parseInt(scoreDropdown.value, 10);
             if (!isNaN(selectedScore)) {
-                scores.push(selectedScore);
-                localStorage.setItem(`${pageId}Scores`, JSON.stringify(scores));
-                localStorage.setItem(`${pageId}LastScore`, selectedScore);
-                updateAverageScore();
+                fetch(`${SHEETS_API_URL}?action=submit&gameId=${pageId}&score=${selectedScore}`)
+                    .then(response => response.text())
+                    .then(data => {
+                        alert(`Score submitted: ${selectedScore}`);
+                        fetchGlobalScore(); // Refresh global score after submission
+                    })
+                    .catch(error => console.error("Error submitting score:", error));
 
-                // Update localStorage
-                const gameData = {
-                    id: pageId,
-                    name: gameName,
-                    image: gameImage,
-                    score: selectedScore,
-                    progress: progressStatus
-                };
-
-                localStorage.setItem(`userGame_${pageId}`, JSON.stringify(gameData));
                 alert(`${gameData.name} (Score: ${selectedScore}) added to your list!`);
             }
         });
@@ -67,4 +61,5 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+    fetchGlobalScore();
 });
