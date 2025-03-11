@@ -1,7 +1,9 @@
 const userId = localStorage.getItem("userId") || `guest_${Math.random().toString(36).substr(2, 9)}`;
 localStorage.setItem("userId", userId);
 
-const SHEETS_API_URL = "https://script.google.com/macros/s/AKfycbyExq6vbB4_aYcdYbctMSigaybGhkivkHoMkpvyy0MKPac_CbtLN9vi7g8aLIZVel1cUg/exec";
+console.log("Assigned User ID:", userId);
+
+const SHEETS_API_URL = "https://script.google.com/macros/s/AKfycbyumYdRic9PaAylIxbqyHoOWIKbaUdlSQd3fqkUiUS73b8c8HUJdN7hX6bxn3SHsg0OaQ/exec";
 
 document.addEventListener("DOMContentLoaded", () => {
     const pageId = document.body.getAttribute("data-page-id");
@@ -31,7 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
         scoreDropdown.addEventListener("change", () => {
             const selectedScore = parseInt(scoreDropdown.value, 10);
             if (!isNaN(selectedScore)) {
-                fetch(`${SHEETS_API_URL}?action=submit&gameId=${pageId}&score=${selectedScore}`)
+                fetch(`${SHEETS_API_URL}?action=submit&gameId=${pageId}&score=${selectedScore}&userId=${userId}`)
+
                     .then(response => response.text())
                     .then(data => {
                         alert(`Score submitted: ${selectedScore}`);

@@ -1,35 +1,60 @@
+
+
 document.addEventListener("DOMContentLoaded", () => {
-    const games = [
-        { id: "balatro", name: "Balatro", image:"../assets/gameIcons/balatro.webp" },
-        { id: "persona5", name: "Persona 5 Royal", image:"../assets/gameIcons/persona5.webp" },
-        { id: "pikmin", name: "Pikmin", image:"../assets/gameIcons/pikmin.webp" },
-        { id: "pikmin2", name: "Pikmin 2", image:"../assets/gameIcons/pikmin2.webp" }
-    ];
+    const gameTableBody = document.querySelector("#global-table tbody");
 
-    const gameTableBody = document.querySelector("#game-table tbody");
+    const fetchGlobalRankings = async () => {
+        try {
+            let response = await fetch("https://script.google.com/macros/s/AKfycbxZqIvVDkEk3Bu4QoHH3B-9Qz26MGrFnzVrFb96WHCGLx5cvG0bHw1L9eKpqBM7m941UQ/exec?action=getGlobalRankings");
+            let rawData = await response.text(); // Fetch as raw text first
+            console.log("📌 Raw Data:", rawData);
 
-    const loadAndDisplayGames = () => {
-        const gameScores = games.map((game) => {
-            const scores = JSON.parse(localStorage.getItem(`${game.id}Scores`)) || [];
-            const average =
-                scores.reduce((sum, score) => sum + score, 0) / (scores.length || 1);
-            return { ...game, average: average.toFixed(2) };
-        });
+            // Try parsing JSON (handle cases where response is stringified JSON)
+            let data;
+            try {
+                data = JSON.parse(rawData.trim()); // Ensure proper JSON parsing
+                if (typeof data === "string") {
+                    data = JSON.parse(data); // Handle double-stringified JSON
+                }
+            } catch (parseError) {
+                console.error("❌ JSON Parse Error:", parseError, "Raw Data:", rawData);
+                return;
+            }
 
-        gameScores.sort((a, b) => b.average - a.average);
+            if (!Array.isArray(data)) {
+                console.error("❌ Error: Data received is not an array. Type:", typeof data, "Content:", data);
+                return;
+            }
 
-        gameTableBody.innerHTML = gameScores
-            .map(
-                (game) => `
-                <tr>
-                    <td><a href="/games/${game.id}.html"><img src="${game.image}" alt="the cover art for the game ${game.name}" class="game-image"></a></td>
-                    <td>${game.name}</td>
-                    <td>${game.average}</td>
-                </tr>`
-            )
-            .join("");
+            // Sort by descending averageScore
+            data.sort((a, b) => b.averageScore - a.averageScore);
+
+            // Clear the table before adding new data
+            gameTableBody.innerHTML = "";
+
+            data.forEach(game => {
+                gameTableBody.innerHTML += `
+                    <tr>
+                        <td><a href="/games/${game.id}.html">
+                            <img src="${game.image}" alt="Cover of ${game.title}" class="game-image">
+                        </a></td>
+                        <td>${game.title}</td>
+                        <td>${game.averageScore}</td>
+                    </tr>`;
+            });
+
+            console.log("✅ Rankings successfully displayed!");
+
+        } catch (error) {
+            console.error("❌ Error fetching global rankings:", error);
+        }
     };
 
-    loadAndDisplayGames();
+    fetchGlobalRankings();
 });
+
+
+
+
+
 
