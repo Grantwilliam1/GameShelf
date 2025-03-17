@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <td><a href="/games/${game.id}.html">
                             <img src="${game.image}" alt="Cover of ${game.title}" class="game-image">
                         </a></td>
-                        <td>${game.title}</td>
+                        <td id=game-title>${game.title}</td>
                         <td>${game.averageScore}</td>
                     </tr>`;
             });

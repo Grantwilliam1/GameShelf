@@ -88,6 +88,8 @@ strong{
 a:hover {
     background-color: #F1E0FF;
     color: #153063;
+    padding: 4px 8px;      /* Add padding to expand the highlight */
+    margin: -4px -8px;
 }
 
 strong {
@@ -508,8 +510,8 @@ td {
 }
 
 .game-image {
-    width: 150px;
-    height: 225px;
+    width: 130px;
+    height: 195px;
     border-radius: 8px;
     margin-left: 30px;
 }
@@ -635,8 +637,40 @@ figure:hover figcaption{
     transform: scale(1.10);
 }
 
+#global-table td {
+    font-size: 1.2em;
+    vertical-align: middle;
+    font-weight: 900;
+    font-family: "Orbitron", serif;
+}
+
+#game-title, #game-score {
+    font-size: 1.2em;
+    font-weight: 900;
+    font-family: "Orbitron", serif;
+}
+
 #gamesTable .slide {
     display: block;
     width: 100%;
 }
 
+/* some things for the global page specficially: */
+
+#global-list-title {
+    margin-left: 25px;
+    margin-bottom: -25px;
+}
+
+#disclaimer {
+    font-size: 0.7em;
+    margin-left: 25px;
+    margin-bottom: -25px;
+}
+
+/* some things for the user list specificially */
+
+#user-list-title {
+    margin-left: 25px;
+    margin-bottom: -25px;
+}
