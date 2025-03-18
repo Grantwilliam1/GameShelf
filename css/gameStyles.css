@@ -674,3 +674,149 @@ figure:hover figcaption{
     margin-left: 25px;
     margin-bottom: -25px;
 }
+
+/* user table stuff */
+
+#user-table {
+    table-layout: fixed; /* Important to maintain fixed proportions */
+    width: 100%;
+    border-spacing: 0 15px;
+    overflow-wrap: break-word;
+}
+
+#user-table th:nth-child(1), #user-table td:nth-child(1) {
+    width: 20%; /* Icon Column */
+    text-align: center;
+}
+
+#user-table th:nth-child(2), #user-table td:nth-child(2) {
+    width: 35%; /* Title Column */
+}
+
+#user-table th:nth-child(3), #user-table td:nth-child(3) {
+    width: 10%; /* Score Column */
+    text-align: center;
+}
+
+#user-table th:nth-child(4), #user-table td:nth-child(4) {
+    width: 15%; /* Progress Column */
+    text-align: center;
+}
+
+#user-table th:nth-child(5), #user-table td:nth-child(5) {
+    width: 20%; /* Notes Column */
+}
+
+#user-table .game-note {
+    overflow-wrap: break-word;
+    max-width: 100%; /* Takes the full column width allocated (20%) */
+    font-size: .8em;
+}
+
+@keyframes fadeInRow {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#user-table tbody tr {
+    animation: fadeInRow 0.3s ease-in-out;
+}
+
+#user-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transition: back
+    ground-color 0.2s ease-in-out;
+}
+
+
+
+
+#user-table tbody tr:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.03);
+    box-shadow: inset 0px 0px 5px rgba(255, 255, 255, 0.08);
+}
+
+#user-table tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0px 0px 5px rgba(255, 255, 255, 0.1);
+}
+
+/* global table stuff */
+
+#global-table tbody tr {
+    animation: fadeInRow 0.3s ease-in-out;
+}
+
+#global-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transition: back
+    ground-color 0.2s ease-in-out;
+}
+
+
+
+
+#global-table tbody tr:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.03);
+    box-shadow: inset 0px 0px 5px rgba(255, 255, 255, 0.08);
+}
+
+#global-table tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0px 0px 5px rgba(255, 255, 255, 0.1);
+}
+
+
+
+
+
+#user-list-header {
+    display: flex;
+    justify-content: space-between; /* Pushes buttons to the right */
+    align-items: center; /* Keeps everything aligned vertically */
+    margin-bottom: 20px; /* Adds spacing before the table */
+}
+
+#user-list-actions {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+
+#user-list-actions button {
+    background-color: #4E4C51;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-bottom: -35px;
+}
+
+#user-list-actions button:hover {
+    background-color: #6E5B8C;
+}
+
+
+.force-full-opacity * {
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+

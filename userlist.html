@@ -26,7 +26,13 @@
         </nav>
 
         <main>
-            <h2 id="user-list-title">User List</h2>
+            <div id="user-list-header">
+                <h2 id="user-list-title">User List</h2>
+                <div id="user-list-actions">
+                    <button id="download-pdf">Download as JPG</button>
+                    <button id="share-list">Share List</button>
+                </div>
+            </div>
             <table id="user-table">
                 <thead>
                     <tr>
@@ -44,5 +50,6 @@
     </div>
     <script src="/js/userRank.js"></script>
     <script src="/js/scriptHome.js"></script>
+    <script src="/js/listActions.js"></script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const gameTableBody = document.querySelector("#user-table tbody");
+    const dummyText = "Click to edit me";
 
     const loadAndDisplayUserGames = () => {
         gameTableBody.innerHTML = "";
@@ -19,14 +20,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     <td class="game-title">${game.name}</td>
                     <td class="game-score">${game.score}</td>
                     <td>${game.progress}</td>
-                    <td contenteditable="true" class="game-note">${game.note || "Click to edit me"}</td>
+                    <td contenteditable="true" class="game-note">${game.note || dummyText}</td>
                 </tr>`;
         });
     };
 
     loadAndDisplayUserGames();
 
-    // Event listener for live note saving
+    // Save notes on input
     gameTableBody.addEventListener('input', (event) => {
         const target = event.target;
         if (target.classList.contains('game-note')) {
@@ -39,4 +40,19 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem(storedGameKey, JSON.stringify(gameData));
         }
     });
+
+    // Auto-select dummy text on click
+    gameTableBody.addEventListener('focusin', (event) => {
+        const target = event.target;
+        if (target.classList.contains('game-note') && target.innerText.trim() === dummyText) {
+            // Select the dummy text
+            const range = document.createRange();
+            range.selectNodeContents(target);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+        }
+    });
 });
+
+

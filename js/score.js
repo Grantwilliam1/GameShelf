@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const scoreDropdown = document.getElementById("score");
     const progressDropdown = document.getElementById("progress");
+    const progressForm = document.getElementById("progressForm");
     const scoreDisplay = document.querySelector(".score + span");
 
     const gameName = document.querySelector("main h2")?.textContent.trim() || "Unknown Game";
@@ -34,20 +35,29 @@ document.addEventListener("DOMContentLoaded", () => {
             const selectedScore = parseInt(scoreDropdown.value, 10);
             if (!isNaN(selectedScore)) {
                 fetch(`${SHEETS_API_URL}?action=submit&gameId=${pageId}&score=${selectedScore}&userId=${userId}`)
-
                     .then(response => response.text())
                     .then(data => {
                         alert(`Score submitted: ${selectedScore}`);
-                        fetchGlobalScore(); // Refresh global score after submission
+                        fetchGlobalScore();
+
+                        // Update local storage with game data
+                        const gameData = JSON.parse(localStorage.getItem(`userGame_${pageId}`)) || {};
+                        gameData.id = pageId;
+                        gameData.name = gameName;
+                        gameData.image = gameImage;
+                        gameData.score = selectedScore;
+                        gameData.progress = gameData.progress || progressStatus;
+                        localStorage.setItem(`userGame_${pageId}`, JSON.stringify(gameData));
+
+                        localStorage.setItem(`${pageId}LastScore`, selectedScore);
+                        alert(`${gameName} (Score: ${selectedScore}) added to your list!`);
                     })
                     .catch(error => console.error("Error submitting score:", error));
-
-                alert(`${gameData.name} (Score: ${selectedScore}) added to your list!`);
             }
         });
     }
 
-    if (progressDropdown) {
+    if (progressDropdown && progressForm) {
         progressDropdown.value = progressStatus !== "Not Set" ? progressStatus : "";
 
         progressForm.addEventListener("change", (event) => {
@@ -57,12 +67,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 progressStatus = selectedProgress;
 
                 const gameData = JSON.parse(localStorage.getItem(`userGame_${pageId}`)) || {};
+                gameData.id = pageId;
+                gameData.name = gameName;
+                gameData.image = gameImage;
                 gameData.progress = selectedProgress;
+                gameData.score = gameData.score || lastSelectedScore;
                 localStorage.setItem(`userGame_${pageId}`, JSON.stringify(gameData));
 
                 alert(`${gameName} progress updated to: ${selectedProgress}`);
             }
         });
     }
+    
     fetchGlobalScore();
 });
