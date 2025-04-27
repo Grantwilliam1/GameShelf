@@ -39,7 +39,8 @@ function generateGamePage(title, icon) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>${title}</title>
-        <link href="../css/gameStyles.css" rel="stylesheet">
+        <link href="css/gameStyles.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body data-page-id="${gameSlug}">
         <div class="container">
@@ -116,6 +117,7 @@ function generateGamePage(title, icon) {
     
         </div>
         <script src="../js/score.js"></script>
+        <script src="../js/fetchGames.js"></script>
         <script src="../js/scriptGames.js"></script>
     </body>
     </html>

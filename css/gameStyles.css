@@ -30,6 +30,7 @@ nav {
     border-radius: 15px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
     margin: 10px;
+    word-wrap: break-word;
 
 }
 
@@ -346,6 +347,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 5px;
+    width: 30%;
 }
 
 .search-bar input {
@@ -518,6 +520,24 @@ td {
 
 /* this is just me testing smthing */
 
+#global-table td {
+    font-size: 1.2em;
+    vertical-align: middle;
+    font-weight: 900;
+    font-family: "Orbitron", serif;
+}
+
+#game-title, #game-score {
+    font-size: 1.2em;
+    font-weight: 900;
+    font-family: "Orbitron", serif;
+}
+
+#gamesTable .slide {
+    display: block;
+    width: 100%;
+}
+
 
 .slide {
     display: flex;
@@ -572,88 +592,7 @@ figure:hover figcaption{
     transition: transform 0.25s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-#gamesTable {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    table-layout: fixed;
-}
 
-#gamesTable tr {
-    display: table-row !important;
-    width: 100%;
-}
-
-#gamesTable td {
-    width: 12.5%;
-    text-align: center;
-    padding: 0px;
-    vertical-align: top;
-    display: table-cell !important;
-    box-sizing: border-box;
-}
-
-
-#gamesTable img {
-    width: 160px;
-    height: 200px;
-    object-fit: cover;
-    transition: transform 0.25s ease-in-out;
-}
-
-#gamesTable figcaption {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    min-height: 40px;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    text-align: center;
-    font-size: 0.75em;
-    padding: 5px;
-    border-radius: 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    text-align: center;
-}
-
-#gamesTable figure {
-    position: relative;
-    display: inline-block;
-    width: 160px;
-    height: 200px;
-    margin: 10px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
-    transition: transform 0.25s ease-in-out;
-
-}
-
-#gamesTable figure:hover {
-    transform: scale(1.10);
-}
-
-#global-table td {
-    font-size: 1.2em;
-    vertical-align: middle;
-    font-weight: 900;
-    font-family: "Orbitron", serif;
-}
-
-#game-title, #game-score {
-    font-size: 1.2em;
-    font-weight: 900;
-    font-family: "Orbitron", serif;
-}
-
-#gamesTable .slide {
-    display: block;
-    width: 100%;
-}
 
 /* some things for the global page specficially: */
 
@@ -678,38 +617,38 @@ figure:hover figcaption{
 /* user table stuff */
 
 #user-table {
-    table-layout: fixed; /* Important to maintain fixed proportions */
+    table-layout: fixed;
     width: 100%;
     border-spacing: 0 15px;
     overflow-wrap: break-word;
 }
 
 #user-table th:nth-child(1), #user-table td:nth-child(1) {
-    width: 20%; /* Icon Column */
+    width: 20%; 
     text-align: center;
 }
 
 #user-table th:nth-child(2), #user-table td:nth-child(2) {
-    width: 35%; /* Title Column */
+    width: 35%;
 }
 
 #user-table th:nth-child(3), #user-table td:nth-child(3) {
-    width: 10%; /* Score Column */
+    width: 10%;
     text-align: center;
 }
 
 #user-table th:nth-child(4), #user-table td:nth-child(4) {
-    width: 15%; /* Progress Column */
+    width: 15%;
     text-align: center;
 }
 
 #user-table th:nth-child(5), #user-table td:nth-child(5) {
-    width: 20%; /* Notes Column */
+    width: 20%;
 }
 
 #user-table .game-note {
     overflow-wrap: break-word;
-    max-width: 100%; /* Takes the full column width allocated (20%) */
+    max-width: 100%;
     font-size: .8em;
 }
 
@@ -747,8 +686,6 @@ figure:hover figcaption{
     box-shadow: inset 0px 0px 5px rgba(255, 255, 255, 0.1);
 }
 
-/* global table stuff */
-
 #global-table tbody tr {
     animation: fadeInRow 0.3s ease-in-out;
 }
@@ -778,14 +715,14 @@ figure:hover figcaption{
 
 #user-list-header {
     display: flex;
-    justify-content: space-between; /* Pushes buttons to the right */
-    align-items: center; /* Keeps everything aligned vertically */
-    margin-bottom: 20px; /* Adds spacing before the table */
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 #user-list-actions {
     display: flex;
-    gap: 10px; /* Space between buttons */
+    gap: 10px;
 }
 
 #user-list-actions button {
@@ -820,3 +757,190 @@ figure:hover figcaption{
 
 
 
+
+
+
+
+.game-description {
+    max-width: 60ch; /* Prevents text from stretching too wide */
+    line-height: 1.6; /* Increases readability */
+    letter-spacing: 0.3px;
+    font-size: 1rem;
+    color: #ddd;
+    margin-top: 1rem;
+}
+
+/* .game-title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+} */
+
+.game-title {
+    /* font-size: 1.75em; */
+    font-family: "Orbitron", serif;
+    font-weight: 500;
+}
+
+.score-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #1c1c1c;
+    border-radius: 12px;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05);
+}
+select {
+    background: #292929;
+    border: 1px solid #444;
+    padding: 6px 12px;
+    color: #ddd;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.score-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem;
+    background: #222;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+.score-label {
+    font-size: 1.2 em;
+    font-weight: bold;
+    color: #66ccff;
+}
+.game-cover {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    max-width: 100%;
+}
+
+.game-info-box {
+    background: rgba(20, 20, 20, 0.9);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.game-progress {
+    font-size: .3 em;
+}
+
+
+
+
+
+
+#gamesGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    /* padding: 10px; */
+    margin-bottom: 10px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+#gamesGrid figure {
+    position: relative;
+    display: inline-block;
+    width: 160px;
+    height: 200px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out;
+}
+
+#gamesGrid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+#gamesGrid figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    min-height: 40px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    font-size: 0.75em;
+    padding: 5px;
+    border-radius: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
+}
+
+#gamesGrid figure:hover figcaption {
+    opacity: 0;
+}
+
+#gamesGrid figure:hover {
+    transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
+@media (max-width: 800px) {
+    #user-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    #user-table thead,
+    #user-table tbody,
+    #user-table tr,
+    #user-table td,
+    #user-table th {
+        display: block;
+    }
+
+    #user-table tr {
+        margin-bottom: 20px;
+        box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    }
+
+    #user-table td,
+    #user-table th {
+        text-align: left;
+        padding: 10px 15px;
+        border: none;
+        width: auto;
+    }
+
+    #user-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: inline-block;
+        width: 100px;
+        color: #ccc;
+    }
+
+    #user-table td img {
+        width: 100px;
+        height: auto;
+    }
+}

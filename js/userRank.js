@@ -17,17 +17,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     <td><a href="/games/${game.id}.html">
                         <img src="${game.image}" alt="Cover of ${game.name}" class="game-image">
                     </a></td>
-                    <td class="game-title">${game.name}</td>
-                    <td class="game-score">${game.score}</td>
-                    <td>${game.progress}</td>
-                    <td contenteditable="true" class="game-note">${game.note || dummyText}</td>
+                    <td data-label="Title" class="game-title">${game.name}</td>
+                    <td data-label="Score" class="game-score">${game.score}</td>
+                    <td data-label="Progress" class="game-progress">${game.progress}</td>
+                    <td data-label="Notes" contenteditable="true" class="game-note">${game.note || dummyText}</td>
                 </tr>`;
         });
     };
 
     loadAndDisplayUserGames();
 
-    // Save notes on input
     gameTableBody.addEventListener('input', (event) => {
         const target = event.target;
         if (target.classList.contains('game-note')) {

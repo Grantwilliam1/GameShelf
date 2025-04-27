@@ -57,7 +57,9 @@ def generate_pages():
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{game["Title"]}</title>
+    <base href="../">
     <link href="../css/gameStyles.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body data-page-id="{game_slug}">
     <div class="container">
@@ -73,7 +75,7 @@ def generate_pages():
                 <li><a href="../global.html"><strong>Top Games</strong></a></li>
                 <li><a href="../userlist.html"><strong>User profile</strong></a></li>
             </ul>
-            <form class="search-bar" action="/search" method="GET">
+            <form class="search-bar">
                 <input type="text" name="q" placeholder="Search..." required>
             </form>
         </nav>
@@ -126,8 +128,9 @@ def generate_pages():
         </aside>
 
     </div>
-    <script src="../js/score.js"></script>
+    <script src="../js/fetchGames.js"></script>
     <script src="../js/scriptGames.js"></script>
+    <script src="../js/score.js"></script>
 </body>
 </html>
 """

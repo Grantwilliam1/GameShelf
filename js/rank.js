@@ -6,30 +6,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const fetchGlobalRankings = async () => {
         try {
             let response = await fetch("https://script.google.com/macros/s/AKfycbxZqIvVDkEk3Bu4QoHH3B-9Qz26MGrFnzVrFb96WHCGLx5cvG0bHw1L9eKpqBM7m941UQ/exec?action=getGlobalRankings");
-            let rawData = await response.text(); // Fetch as raw text first
+            let rawData = await response.text(); 
             console.log("📌 Raw Data:", rawData);
 
-            // Try parsing JSON (handle cases where response is stringified JSON)
             let data;
             try {
-                data = JSON.parse(rawData.trim()); // Ensure proper JSON parsing
+                data = JSON.parse(rawData.trim());
                 if (typeof data === "string") {
-                    data = JSON.parse(data); // Handle double-stringified JSON
+                    data = JSON.parse(data);
                 }
             } catch (parseError) {
-                console.error("❌ JSON Parse Error:", parseError, "Raw Data:", rawData);
+                console.error("JSON Parse Error:", parseError, "Raw Data:", rawData);
                 return;
             }
 
             if (!Array.isArray(data)) {
-                console.error("❌ Error: Data received is not an array. Type:", typeof data, "Content:", data);
+                console.error("Error: Data received is not an array. Type:", typeof data, "Content:", data);
                 return;
             }
 
-            // Sort by descending averageScore
             data.sort((a, b) => b.averageScore - a.averageScore);
 
-            // Clear the table before adding new data
             gameTableBody.innerHTML = "";
 
             data.forEach(game => {
@@ -43,10 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     </tr>`;
             });
 
-            console.log("✅ Rankings successfully displayed!");
+            console.log("Rankings successfully displayed!");
 
         } catch (error) {
-            console.error("❌ Error fetching global rankings:", error);
+            console.error("Error fetching global rankings:", error);
         }
     };
 

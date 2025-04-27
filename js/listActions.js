@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const shareBtn = document.getElementById("share-list");
     const userTable = document.getElementById("user-table");
 
-    // Load external libraries dynamically
     function loadScript(url, callback) {
         let script = document.createElement("script");
         script.src = url;
@@ -11,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.head.appendChild(script);
     }
 
-    /** 📸 Download the user list as a JPEG **/
     function downloadAsImage() {
         loadScript("https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js", () => {
             const tableContainer = document.getElementById("user-table");
@@ -32,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    /** 📷 Capture and share the user list **/
     function shareListAsImage() {
         loadScript("https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js", () => {
             const tableContainer = document.getElementById("user-table");
@@ -65,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    /** 📌 If sharing fails, download image and notify user **/
     function forceManualSave(blob) {
         let link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
@@ -77,7 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Image saved! On desktop, manually upload the image to social media.");
     }
 
-    // Attach event listeners
     downloadBtn.addEventListener("click", downloadAsImage);
     shareBtn.addEventListener("click", shareListAsImage);
 });

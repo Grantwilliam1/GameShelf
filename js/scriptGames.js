@@ -1,19 +1,23 @@
-document.querySelector('.search-bar').addEventListener('submit', function (event) {
-    event.preventDefault();
-    let query = event.target.querySelector('input[name="q"]').value.toLowerCase();
+$(document).ready(function () {
+  $('.search-bar').on('submit', function (e) {
+      e.preventDefault();
 
-    query = query.replace(/\s+/g, '');
+      // Wait until gameSearchMap is ready
+      if (!window.isGameSearchReady) {
+          alert("Search is still loading. Please wait a moment and try again.");
+          return;
+      }
 
-    const pages = {
-      balatro: '../games/balatro.html',
-      persona5royal: '../games/persona5.html',
-      pikmin: '../games/pikmin.html',
-      pikmin2: '../games/pikmin2.html'
-    };
+      let input = $(this).find('input[name="q"]').val().toLowerCase().trim();
+      input = input.replace(/\s+/g, '');
 
-    if (pages[query]) {
-      window.location.href = pages[query];
-    } else {
-      alert('Page not found. Please try a different search term.');
-    }
+      if (window.gameSearchMap && window.gameSearchMap[input]) {
+          window.location.href = window.gameSearchMap[input];
+      } else {
+          alert("Game not found. Try a different search term.");
+      }
   });
+});
+
+
+
