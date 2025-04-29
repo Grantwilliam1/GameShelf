@@ -37,7 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 fetch(`${SHEETS_API_URL}?action=submit&gameId=${pageId}&score=${selectedScore}&userId=${userId}`)
                     .then(response => response.text())
                     .then(data => {
-                        alert(`Score submitted: ${selectedScore}`);
                         fetchGlobalScore();
 
                         // Update local storage with game data
